@@ -67,6 +67,41 @@ class _MainState extends State<Main> {
    ),
  );
 
+ Widget userAccountStateLine = Container(
+   child: Column(
+     children: [
+       Container(
+         decoration: BoxDecoration(
+             border: Border.all( width: 0.5)
+         ),
+         child: Text('초기 투자금액'),
+       ),
+       Icon(Icons.arrow_downward_rounded),
+       Container(
+         decoration: BoxDecoration(
+             border: Border.all( width: 0.5)
+         ),
+         child: Text('현재 금액'),
+       ),
+       Icon(Icons.arrow_downward_rounded),
+       Container(
+         decoration: BoxDecoration(
+             border: Border.all( width: 0.5)
+         ),
+         child: Text('목표 금액'),
+       )
+     ],
+   ),
+ );
+
+ Widget userAccountStateYield = Container(
+   child: Row(
+     children: [
+       Text('수익률%')
+     ],
+   ),
+ );
+
 
 
   @override
@@ -74,8 +109,43 @@ class _MainState extends State<Main> {
     return Scaffold(
       body: Center(
         child: Column(
-         children: [
-         ],
+          // A1 A2 A3
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              //A1
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border.all( width: 0.1)
+              ),
+              child: Column(
+                children: [
+                  userAccountName,
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all( width: 0.1),
+                       ),
+                       child: userStrategy,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all( width: 0.1),
+                        ),
+                        child: Row(
+                          children: [
+                            userAccountStateLine,
+                            userAccountStateYield
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
