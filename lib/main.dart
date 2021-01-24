@@ -8,12 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(        
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+    return new MaterialApp(
       home: Main(),
     );
   }
@@ -102,11 +97,36 @@ class _MainState extends State<Main> {
    ),
  );
 
+var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6UB96dEQ7k70/img.png';
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        leading: Container(
+          margin: const EdgeInsets.all(5),
+         decoration: BoxDecoration(
+           shape: BoxShape.circle,
+           image: DecorationImage(
+             image: NetworkImage(userImageurl)
+           )
+         ),
+        ),
+        title: Container(
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text('userName', style: TextStyle(fontSize: 30) ),
+                Text('너무 흔한 진실, 특별해 보이는 거짓', style: TextStyle(fontSize: 10) )
+              ],
+            ),
+          ),
+        )
+      ),
       body: Center(
         child: Column(
           // A1 A2 A3
