@@ -27,67 +27,6 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
 
 
- Widget userStrategy = Container(
-   child: Column(
-     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-     children: [
-       Container(
-         child: Row(
-           children: [
-             Icon(Icons.functions),
-             Text('투자전략 n')
-           ],
-         ),
-       ),
-       Container(
-         child: Row(
-           children: [
-             Text('손익금액표시')
-             // 클릭시 자신의 '재무제표'란으로 들어감
-           ],
-         ),
-       )
-     ],
-   ),
- );
-
- Widget userAccountStateLine = Container(
-   child: Column(
-     children: [
-       Container(
-         height: 20,
-         width: 120,
-         decoration: BoxDecoration(
-             border: Border.all( width: 0.5)
-         ),
-         child: Text('초기 투자금액'),
-       ),
-       Icon(Icons.arrow_downward_rounded),
-       Container(
-         decoration: BoxDecoration(
-             border: Border.all( width: 0.5)
-         ),
-         child: Text('현재 금액'),
-       ),
-       Icon(Icons.arrow_downward_rounded),
-       Container(
-         decoration: BoxDecoration(
-             border: Border.all( width: 0.5)
-         ),
-         child: Text('목표 금액'),
-       )
-     ],
-   ),
- );
-
- Widget userAccountStateYield = Container(
-   child: Row(
-     children: [
-       Text('수익률%')
-     ],
-   ),
- );
-
 var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6UB96dEQ7k70/img.png';
 
 
@@ -124,6 +63,8 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
           children: [
             Container(
               //A1
+              width: 350,
+              height: 350,
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.only(left: 20,right: 20, top: 40),
               decoration: BoxDecoration(
@@ -184,8 +125,8 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.functions),
-                                  Text('투자전략 n', style: TextStyle(fontSize: 20))
+                                  Icon(Icons.functions, size: 25,),
+                                  Text('투자전략 n', style: TextStyle(fontSize: 25))
                                 ],
                               ),
                             ),
@@ -193,7 +134,7 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('손익금액표시')
+                                  Text('손익금액표시', style: TextStyle(fontSize: 20))
                                   // 클릭시 자신의 '재무제표'란으로 들어감
                                 ],
                               ),
@@ -202,18 +143,15 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                         ),
                       ),
                       Container(
-                        height: 130,
-                        width: 150,
-                        padding: const EdgeInsets.all(8),
-
+                        padding: const EdgeInsets.only(top: 50, left: 5, right: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                            Column(
                              children: [
                                Container(
-                                 height: 20,
-                                 width: 120,
+                                 height: 40,
+                                 width: 160,
                                  decoration: BoxDecoration(
                                    border: Border.all( width: 0.5),
                                    borderRadius: BorderRadius.circular(20)
@@ -221,14 +159,14 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                                  child: Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
-                                     Text('초기 투자금액')
+                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //초기 투자금액
                                    ],
                                  ),
                                ),
                                Icon(Icons.arrow_downward_rounded),
                                Container(
-                                 height: 20,
-                                 width: 120,
+                                 height: 40,
+                                 width: 160,
                                  decoration: BoxDecoration(
                                      border: Border.all( width: 0.5),
                                      borderRadius: BorderRadius.circular(20)
@@ -236,14 +174,14 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                                  child: Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
-                                     Text('현재 금액')
+                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //현재금액
                                    ],
                                  ),
                                ),
                                Icon(Icons.arrow_downward_rounded),
                                Container(
-                                 height: 20,
-                                 width: 120,
+                                 height: 40,
+                                 width: 160,
                                  decoration: BoxDecoration(
                                      border: Border.all( width: 0.5),
                                      borderRadius: BorderRadius.circular(20)
@@ -251,7 +189,7 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                                  child: Row(
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
-                                     Text('목표 금액')
+                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //목표 금액
                                    ],
                                  ),
                                ),
@@ -264,7 +202,31 @@ var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6U
                   )
                 ],
               ),
-            )
+            ),
+           Container(
+             height: 60,
+             width: 150,
+             margin: const EdgeInsets.all(20),
+             decoration: BoxDecoration(
+               color: Colors.white,
+               border: Border.all(width: 2, color: Colors.grey.withOpacity(0.2)),
+               borderRadius: BorderRadius.circular(40),
+               boxShadow: [
+                 BoxShadow(
+                 color: Colors.grey.withOpacity(0.5),
+                 spreadRadius: 5,
+                 blurRadius: 7,
+                 offset: Offset(0, 3), // changes position of shadow
+               ),
+              ],
+             ),
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 Text('수익률 %', style: TextStyle(fontSize: 30) )
+               ],
+             ),
+            ),
           ],
         ),
       ),
