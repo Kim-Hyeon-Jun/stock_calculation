@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:stock_calculation/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,226 +9,57 @@ void main() {
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+   build(BuildContext context) {
     return new MaterialApp(
       home: Main(),
     );
   }
 }
 
-class Main extends StatefulWidget {
-  Main({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MainState createState() => _MainState();
-}
-
-class _MainState extends State<Main> {
-
-
-var userImageurl = 'https://blog.kakaocdn.net/dn/bhk3Sg/btquM9BVthu/1Par8gNR9w6UB96dEQ7k70/img.png';
-
-
+class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        leading: Container(
-          margin: const EdgeInsets.all(5),
-         decoration: BoxDecoration(
-           shape: BoxShape.circle,
-           image: DecorationImage(
-             image: NetworkImage(userImageurl)
-           )
-         ),
-        ),
-        title: Container(
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text('userName', style: TextStyle(fontSize: 30) ),
-                Text('너무 흔한 진실, 특별해 보이는 거짓', style: TextStyle(fontSize: 10) )
-              ],
-            ),
-          ),
-        )
-      ),
-      body: Center(
-        child: Column(
-          // A1 A2
-          children: [
-            Container(
-              //A1
-              width: 350,
-              height: 350,
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.only(left: 20,right: 20, top: 40),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all( width: 0.1),
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-             ),
+    // TODO: implement build
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: MainBackgroundColor,
 
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        height: 35,
-                        width: 230,
-                        decoration: BoxDecoration(
-                         border: Border.all(width: 2, color: Colors.grey.withOpacity(0.2)),
-                         borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('증권계좌명', style: TextStyle(fontSize: 20) ),
-                            //여러개의 증권계좌 중 대표 표시
-                            Icon(
-                              Icons.arrow_drop_down, size: 20,
-                            )
-                            // 아이콘 클릭시 다른 증권계좌 선택 가능해야함
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all( width: 0.1),
-                          borderRadius: BorderRadius.circular(20)
-                       ),
-                       child:  Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.functions, size: 25,),
-                                  Text('투자전략 n', style: TextStyle(fontSize: 25))
-                                ],
-                              ),
-                            ),
-                            Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('손익금액표시', style: TextStyle(fontSize: 20))
-                                  // 클릭시 자신의 '재무제표'란으로 들어감
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(top: 50, left: 5, right: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                           Column(
-                             children: [
-                               Container(
-                                 height: 40,
-                                 width: 160,
-                                 decoration: BoxDecoration(
-                                   border: Border.all( width: 0.5),
-                                   borderRadius: BorderRadius.circular(20)
-                                 ),
-                                 child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
-                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //초기 투자금액
-                                   ],
-                                 ),
-                               ),
-                               Icon(Icons.arrow_downward_rounded),
-                               Container(
-                                 height: 40,
-                                 width: 160,
-                                 decoration: BoxDecoration(
-                                     border: Border.all( width: 0.5),
-                                     borderRadius: BorderRadius.circular(20)
-                                 ),
-                                 child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
-                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //현재금액
-                                   ],
-                                 ),
-                               ),
-                               Icon(Icons.arrow_downward_rounded),
-                               Container(
-                                 height: 40,
-                                 width: 160,
-                                 decoration: BoxDecoration(
-                                     border: Border.all( width: 0.5),
-                                     borderRadius: BorderRadius.circular(20)
-                                 ),
-                                 child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
-                                     Text('1,111,111,111', style: TextStyle(fontSize: 20) ) //목표 금액
-                                   ],
-                                 ),
-                               ),
-                             ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ]
-                  )
-                ],
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                decoration: BoxDecoration(),
               ),
             ),
-           Container(
-             height: 60,
-             width: 150,
-             margin: const EdgeInsets.all(20),
-             decoration: BoxDecoration(
-               color: Colors.white,
-               border: Border.all(width: 2, color: Colors.grey.withOpacity(0.2)),
-               borderRadius: BorderRadius.circular(40),
-               boxShadow: [
-                 BoxShadow(
-                 color: Colors.grey.withOpacity(0.5),
-                 spreadRadius: 5,
-                 blurRadius: 7,
-                 offset: Offset(0, 3), // changes position of shadow
-               ),
-              ],
-             ),
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-                 Text('수익률 %', style: TextStyle(fontSize: 30) )
-               ],
-             ),
-            ),
+            Expanded(
+                flex: 10,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(top: 30),
+                      decoration: BoxDecoration(
+                          color: Colors.black38,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(40),
+                              topRight: Radius.circular(40)
+                          )
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 100, right: 100),
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(40)
+                      ),
+                    )
+                  ],
+                ),
+            )
           ],
-        ),
+          )
       ),
     );
   }
