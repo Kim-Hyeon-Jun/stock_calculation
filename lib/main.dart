@@ -27,7 +27,14 @@ class Main extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: MainBackgroundColor,
-          title: Image.asset('assets/unnamed.png'),
+          title: Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Image.asset('assets/icon.png',
+                height: 100,
+                width: 150,)
+            )
+          ),
         ),
         body: Column(
           children: <Widget>[
