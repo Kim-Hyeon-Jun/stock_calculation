@@ -29,23 +29,16 @@ class Main extends StatelessWidget {
           backgroundColor: MainBackgroundColor,
           title: Center(
             child: Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: EdgeInsets.only(top: 20, bottom: 10),
               child: Image.asset('assets/icon.png',
-                height: 100,
-                width: 150,)
+                height: 60,
+                width: 100,)
             )
           ),
         ),
         body: Column(
           children: <Widget>[
             Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(),
-              ),
-            ),
-            Expanded(
-                flex: 25,
                 child: Stack(
                   children: <Widget>[
                     Container(
@@ -95,7 +88,7 @@ class Main extends StatelessWidget {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(right: 10),
-                                    child: Text('111-1111-11111', style: TextStyle(fontSize: 15),),
+                                    child: Text('111-1111-11111', style: TextStyle(fontSize: 18),),
                                   )
                                 ],
                               ),
@@ -108,7 +101,7 @@ class Main extends StatelessWidget {
                             children: [
                               Text('김현준',
                                   style: TextStyle(
-                                      fontSize: 30,
+                                      fontSize: 25,
                                       color: Colors.white60
                                   )
                               ),
@@ -122,7 +115,7 @@ class Main extends StatelessWidget {
                             children: [
                               Text('1,382,356,000',
                                   style: TextStyle(
-                                      fontSize: 50,
+                                      fontSize: 40,
                                       color: Colors.white
                                   )
                               ),
@@ -207,6 +200,7 @@ class Main extends StatelessWidget {
                                 )
                               ],
                             ),
+                            //sliver or button and next page?
                           )
                         )
                       ],
