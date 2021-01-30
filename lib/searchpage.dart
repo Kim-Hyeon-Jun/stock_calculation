@@ -1,40 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:stock_calculation/constants.dart';
-import 'package:stock_calculation/searchpage.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class searchPage extends StatefulWidget {
   @override
-   build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Main(),
-    );
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _searchPageState();
   }
 }
 
-class Main extends StatelessWidget {
+class _searchPageState extends State<searchPage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SafeArea(
       child: Scaffold(
         backgroundColor: MainBackgroundColor,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: MainBackgroundColor,
           title: Center(
-            child: Container(
-              margin: EdgeInsets.only(top: 20, bottom: 10),
-              child: Image.asset('assets/icon.png',
-                height: 60,
-                width: 100,)
-            )
+              child: Container(
+                  margin: EdgeInsets.only(top: 20, bottom: 10),
+                  child: Image.asset('assets/icon.png',
+                    height: 60,
+                    width: 100,)
+              )
           ),
         ),
         bottomNavigationBar: BottomAppBar(
@@ -47,16 +39,16 @@ class Main extends StatelessWidget {
                   height: 80,
                   padding: EdgeInsets.only(right: 15, bottom: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(80))
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(topRight: Radius.circular(80))
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                          icon: Icon(Icons.account_box_rounded,size: 50),
-                          onPressed: () {},
+                        icon: Icon(Icons.account_box_rounded,size: 50),
+                        onPressed: () {},
                       ),
                       IconButton(
                         icon: Icon(Icons.format_list_numbered,size: 50),
@@ -80,19 +72,49 @@ class Main extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: IconButton(
                     icon: Icon(Icons.search,size: 50),
-                    // navigator 다른거 이용? back button과 연관
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context){
-                            return searchPage();
-                          })
-                      );
                     },
                   ),
                 ),
               ),
             ],
           ),
+        ),
+        body: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+              height: 35,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 15, left: 20),
+                    width: 300,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: '상품검색',
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.only(bottom: 0),
+                    icon: Icon(Icons.search,size: 30,
+                    ),
+                    onPressed: null)
+                  //검색 DB로 입력
+                ],
+              )
+            ),
+            ListView.separated(
+                itemBuilder: null,
+                separatorBuilder: null,
+                itemCount: null)
+          ],
         ),
       ),
     );
